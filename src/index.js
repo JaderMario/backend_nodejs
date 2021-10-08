@@ -21,10 +21,10 @@ class Server {
             console.log("Nueva conexión");
             res.status(200).json({message: "Hola mundo!"});
         });
-        const serverR = new serverRouter.default();
+        //const serverR = new serverRouter.default();
         
         //añadir las rutas al servidor
-        this.app.use(serverR.router);
+        //this.app.use(serverR.router);
         this.app.use(router);
         //Levantar el servidor/correr el servidor
         this.app.listen(this.app.get('port'), ()=>{
