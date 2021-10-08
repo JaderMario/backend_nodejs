@@ -5,7 +5,6 @@ const serverRouter = require('./routers/serverRouter');
 class Server {
     //constructor
     constructor(){
-        //this.conectarBD();
         this.app = express();
         //Indicar el puerto por el que se ejecutará el servidor
         this.app.set('port', process.env.PORT || 3000);
@@ -21,10 +20,10 @@ class Server {
             console.log("Nueva conexión");
             res.status(200).json({message: "Hola mundo!"});
         });
-        //const serverR = new serverRouter.default();
+        const serverR = new serverRouter.default();
         
         //añadir las rutas al servidor
-        //this.app.use(serverR.router);
+        this.app.use(serverR.router);
         this.app.use(router);
         //Levantar el servidor/correr el servidor
         this.app.listen(this.app.get('port'), ()=>{

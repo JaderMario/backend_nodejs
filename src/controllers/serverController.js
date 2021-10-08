@@ -15,6 +15,7 @@ class ServerController{
         let { id, nombre, apellido } = req.body;
         console.log("Usuario registrado con éxito");
         console.table({nombre, apellido});
+        users.push(req.body);
         res.status(200).json({
             message: "Usuario registrado con éxito"
         });
@@ -75,7 +76,7 @@ class ServerController{
         }
     }
 
-    getAllUsers(req, res) {        
+    getAllUsers(req, res) { //request, response       
         res.status(200).json(users);
     }
 }
